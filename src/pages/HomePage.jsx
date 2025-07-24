@@ -5,7 +5,7 @@ import TestimonialSection from "../components/TestimonialSection";
 import HowItWorks from "../components/HowItWorks";
 import PromoCards from "../components/PromoCards";
 import ThemeBasedInvitation from "../components/ThemeBasedInvitation";
-import homeBg from '../assets/images/homeBg.jpg';
+import homeBg from '../assets/images/HomeBg.jpg';
 import InvitationCollections from '../components/InvitationCollections';
 import Promocard1 from '../assets/images/promocard1.jpg'
 import Promocard2 from '../assets/images/promocard2.jpg'

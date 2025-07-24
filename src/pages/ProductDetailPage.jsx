@@ -12,10 +12,10 @@ const ProductDetailPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [mainImage, setMainImage] = useState(product?.src);
 
- const handleBuyNow = () => {
-  addToCart(product, quantity);  
-  navigate("/checkout");         
-};
+  const handleBuyNow = () => {
+    addToCart(product, quantity);
+    navigate("/checkout");
+  };
 
   if (!product) return <div className="p-10 text-center">Product not found.</div>;
 
@@ -137,7 +137,8 @@ const ProductDetailPage = () => {
             <h3 className="text-base sm:text-lg lg:text-2xl font-bold border-b border-black pb-2">
               ADDITIONAL INFORMATION
             </h3>
-            <div className="mt-4 flex flex-col sm:flex-row flex-wrap gap-6 items-start sm:items-center text-sm sm:text-base lg:text-lg">
+
+            <div className="mt-4 flex flex-row gap-8 items-center text-sm sm:text-base lg:text-lg flex-wrap sm:flex-nowrap">
 
               <div className="flex items-center gap-2">
                 <div className="bg-[#7D0B0B] p-2 rounded">
@@ -195,7 +196,9 @@ const ProductDetailPage = () => {
                 </div>
                 <span className="font-bold">Weight:</span> {product.weight} grams
               </div>
+
             </div>
+
           </div>
         </div>
       </div>
