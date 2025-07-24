@@ -2,13 +2,12 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { WishlistContext } from "../context/WishlistContext";
-import { cards } from "./HinduWeddingCardsData"; // ✅ import shared data
+import { cards } from "./HinduWeddingCardsData";
 
 export default function HinduWeddingCards() {
   const { wishlist, toggleWishlistItem } = useContext(WishlistContext);
   const navigate = useNavigate();
 
-  // ✅ Check wishlist by ID (not just title)
   const isCardWishlisted = (card) =>
     wishlist.some((item) => item.id === card.id);
 
@@ -31,22 +30,19 @@ export default function HinduWeddingCards() {
               key={card.id}
               className="relative p-3 rounded-xl shadow bg-white hover:shadow-lg transition duration-300"
             >
-              {/* Wishlist Toggle Button */}
-<button
-  onClick={() => toggleWishlistItem({ ...card, type: "product" })}
-  className={`absolute top-2 right-2 rounded-full cursor-pointer p-2 shadow-md transition-colors duration-300 ${
-    wishlisted ? "bg-red-100" : "bg-white"
-  }`}
->
-  <FaHeart
-    className={`text-lg transition-colors duration-300 ${
-      wishlisted ? "text-red-500" : "text-gray-400"
-    }`}
-  />
-</button>
+
+              <button
+                onClick={() => toggleWishlistItem({ ...card, type: "product" })}
+                className={`absolute top-2 right-2 rounded-full cursor-pointer p-2 shadow-md transition-colors duration-300 ${wishlisted ? "bg-red-100" : "bg-white"
+                  }`}
+              >
+                <FaHeart
+                  className={`text-lg transition-colors duration-300 ${wishlisted ? "text-red-500" : "text-gray-400"
+                    }`}
+                />
+              </button>
 
 
-              {/* Image Click for Navigation */}
               <button onClick={() => handleImageClick(card.id)} className="w-full">
                 <img
                   src={card.src}

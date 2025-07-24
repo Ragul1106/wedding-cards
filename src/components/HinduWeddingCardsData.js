@@ -1,4 +1,4 @@
-import blueWeddingCard from "../assets/images/blueWed.png";
+import blueWeddingCard from "../assets/images/bluewed.png";
 import ganeshaWeddingCard from "../assets/images/ganesha.png";
 import favourBoxWeddingCard from "../assets/images/wedfavour.png";
 import themeWeddingCard from "../assets/images/themewed.png";
