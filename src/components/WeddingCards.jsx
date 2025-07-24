@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import hinduWed from "../assets/images/hinduwed.png";
 import christianWed from "../assets/images/Christian_Wedding.png";
 import muslimWed from "../assets/images/Muslim_Wedding.png";
-import sikhWed from "../assets/images/sikh_Wedding.png";
+import sikhWed from "../assets/images/Sikh_Wedding.png";
 import interfaithWed from "../assets/images/interfaith_wed.png";
 import exclusiveWed from "../assets/images/exclusive_wed.png";
 import traditionalWed from "../assets/images/Traditional_wed.png";
