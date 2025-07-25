@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { affordableCards } from "./AffordableCardsData";
+import { affordableCards } from "../data/AffordableCardsData";
 import { useCart } from "../context/CartContext";
 import RelatedCards from "../components/RelatedCards";
 

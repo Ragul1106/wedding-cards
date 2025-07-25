@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
-import { cards } from "./RelatedCardData";
+import { cards } from "../data/RelatedCardData";
 import { FaHeart } from "react-icons/fa";
-import { WishlistContext } from "../context/WishlistContext"; // ✅ Import context
+import { WishlistContext } from "../context/WishlistContext"; 
 
 const RelatedCards = () => {
-  const { wishlist, toggleWishlistItem } = useContext(WishlistContext); // ✅ Use context
+  const { wishlist, toggleWishlistItem } = useContext(WishlistContext); 
 
   const isCardWishlisted = (card) =>
-    wishlist.some((item) => item.id === card.id); // ✅ Check by ID
+    wishlist.some((item) => item.id === card.id); 
 
   return (
-    <div className="bg-[#F1EFFF] px-6 sm:px-10 lg:px-20 py-10">
+    <div className="bg-[#E6E6FA] px-6 sm:px-10 lg:px-20 py-10">
       <h2 className="text-2xl font-bold text-black mb-6">Related Cards</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
         {cards.slice(0, 8).map((card) => {

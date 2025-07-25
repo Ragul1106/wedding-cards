@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { WishlistContext } from "../context/WishlistContext";
-import { cards } from "./HinduWeddingCardsData";
+import { cards } from "../data/HinduWeddingCardsData";
 
 export default function HinduWeddingCards() {
   const { wishlist, toggleWishlistItem } = useContext(WishlistContext);

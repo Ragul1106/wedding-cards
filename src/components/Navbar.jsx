@@ -79,13 +79,14 @@ const Navbar = () => {
             </div>
 
             <div className="mt-6 flex flex-wrap justify-around gap-4 text-[14px] sm:text-[16px] font-semibold px-4">
-                <a href="/" className="hover:underline">Home</a>
-                <a href="/wedding-cards" className="hover:underline">Wedding Invitation</a>
-                <a href="#" className="hover:underline">Special Occasions</a>
-                <a href="#" className="hover:underline">Theme Cards</a>
-                <a href="#" className="hover:underline">Scroll Invitation</a>
-                <a href="#" className="hover:underline">Digital Invitation</a>
+                <Link to="/" className="hover:underline">Home</Link>
+                <Link to="/wedding-cards" className="hover:underline">Wedding Invitation</Link>
+                <Link to="/special-occasions" className="hover:underline">Special Occasions</Link>
+                <Link to="/theme-cards" className="hover:underline">Theme Cards</Link>
+                <Link to="/scroll-invitation" className="hover:underline">Scroll Invitation</Link>
+                <Link to="/digital-invitation" className="hover:underline">Digital Invitation</Link>
             </div>
+
             <CartModal />
         </nav>
     );

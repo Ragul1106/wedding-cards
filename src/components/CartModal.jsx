@@ -1,28 +1,30 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 const CartModal = () => {
+  const navigate = useNavigate();
+
   const { cartItems, isCartModalOpen, setIsCartModalOpen } = useCart();
+
 
   if (!isCartModalOpen) return null;
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const totalTax = +(subtotal * 0.18).toFixed(2);
-  const total = +(subtotal + totalTax).toFixed(2);
+  const totalPrice = +(subtotal + totalTax).toFixed(2);
   const canCheckout = cartItems.reduce((a, b) => a + b.quantity, 0) >= 100;
 
   return (
     <div className="fixed inset-0 bg-opacity-40 z-50 flex items-center justify-center">
-     <div className="bg-white w-[90%] max-w-9xl p-6 rounded-xl overflow-y-auto h-[70vh] relative shadow-xl">
-        {/* Close Button */}
+      <div className="bg-white w-[90%] max-w-9xl p-6 rounded-xl overflow-y-auto h-[70vh] relative shadow-xl">
         <button
-          className="absolute top-4 right-4 text-black text-xl lg:text-2xl"
+          className="absolute cursor-pointer top-4 right-4 text-black text-xl lg:text-2xl"
           onClick={() => setIsCartModalOpen(false)}
         >
           &times;
         </button>
 
-        {/* Cart Table */}
         <table className="w-full text-left border-collapse text-sm lg:text-base">
           <thead>
             <tr className="border-b border-black">
@@ -32,9 +34,9 @@ const CartModal = () => {
               <th>Tax</th>
               <th>Price</th>
             </tr>
-            
+
           </thead>
-          
+
           <tbody>
             {cartItems.map((item) => (
               <tr key={item.id} className="border-b">
@@ -52,7 +54,6 @@ const CartModal = () => {
             ))}
           </tbody>
 
-          {/* Totals */}
           <tfoot className="text-sm lg:text-base">
             <tr>
               <td colSpan="4" className="text-right font-semibold py-4">Sub Total:</td>
@@ -64,34 +65,49 @@ const CartModal = () => {
             </tr>
             <tr>
               <td colSpan="4" className="text-right font-bold py-4">Total:</td>
-              <td className="font-bold">Rs.{total}</td>
+              <td className="font-bold">Rs.{totalPrice}</td>
             </tr>
           </tfoot>
         </table>
 
-        {/* Warning */}
         {!canCheckout && (
           <p className="text-center text-red-600 font-bold mt-4 text-sm lg:text-base">
             TO CHECKOUT PLEASE ADD MINIMUM 100 ITEMS TO THE CART
           </p>
         )}
 
-        {/* Buttons */}
         <div className="mt-6 flex justify-center gap-6">
           <button
-            className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-lg text-white font-semibold text-sm lg:text-base"
+            className="bg-orange-500 hover:bg-orange-600 cursor-pointer px-6 py-2 rounded-lg text-white font-semibold text-sm lg:text-base"
             onClick={() => setIsCartModalOpen(false)}
           >
             Continue Shopping
           </button>
           <button
             disabled={!canCheckout}
-            className={`${
-              canCheckout ? "bg-gray-800 hover:bg-gray-900" : "bg-gray-400"
-            } px-6 py-2 rounded-lg text-white font-semibold text-sm lg:text-base`}
+            onClick={() => {
+              if (canCheckout) {
+                setIsCartModalOpen(false);
+                navigate("/checkout", {
+                  state: {
+                    cartItems,
+                    subtotal,
+                    totalTax,
+                    totalPrice
+                  }
+                });
+
+              }
+            }}
+            className={`px-6 py-2 rounded-lg text-white font-semibold text-sm lg:text-base transition-all duration-300
+    ${canCheckout
+                ? "bg-gray-800 hover:bg-gray-900 cursor-pointer"
+                : "bg-gray-400 cursor-not-allowed"
+              }`}
           >
             Checkout
           </button>
+
         </div>
       </div>
     </div>

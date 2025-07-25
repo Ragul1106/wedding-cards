@@ -13,10 +13,11 @@ import HowToOrder from "./components/HowToOrder";
 import ScrollToTop from "./components/ScrollToTop";
 import SearchBar from "./components/SearchBar";
 import { WishlistProvider } from "./context/WishlistContext";
-import HomePage from "./pages/HomePage";
+import HomePage from "./components/HomePage";
 import LoginSignup from "./components/LoginSignup";
 import AffordableProductDetailPage from "./components/AffordableProductDetailPage";
 import CheckoutPage from "./components/CheckoutPage";
+import OrderSuccess from "./components/OrderSuccess";
 
 
 const App = () => {
@@ -36,10 +37,10 @@ const App = () => {
           <Route path="/hindu-wedding-cards" element={<HinduWeddingCards />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/how-to-order" element={<HowToOrder />} />
-          
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/search" element={<SearchBar />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/order" element={<OrderSuccess />} />
           <Route path="/product/:id" element={<ProductDetailPage />} /> 
           <Route path="/affordable/:id" element={<AffordableProductDetailPage />} />
         </Routes>

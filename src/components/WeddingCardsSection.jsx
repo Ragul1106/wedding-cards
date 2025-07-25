@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { affordableCards } from "./AffordableCardsData";
+import { affordableCards } from "../data/AffordableCardsData";
 import { FaHeart, FaShoppingBag } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import { WishlistContext } from "../context/WishlistContext";

@@ -10,8 +10,6 @@ import editableWeddingCard from "../assets/images/editablecard.png";
 import traditionalWeddingCard from "../assets/images/traditionalwed.png";
 import scrollWeddingCard from "../assets/images/royalwed.png";
 import gatefoldWeddingCard from "../assets/images/gatefoldwed.png";
-
-// Example variant (you can change image paths accordingly)
 import lavenderVariant from "../assets/images/gatefoldwed.png";
 
 export const cards = [
