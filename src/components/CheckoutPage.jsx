@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import upi from "../assets/images/upitext.png";
+import upi from "../assets/images/UPItext.png";
 import paytm from "../assets/images/paytm.png";
 import gpay from "../assets/images/gpay.png";
 import phonepe from "../assets/images/phonepay.png";
