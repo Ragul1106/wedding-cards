@@ -23,24 +23,24 @@ function HomePage() {
           className="w-full h-auto block"
         />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-14">
-          <div className="max-w-xl">
-            <h2 className="text-2xl sm:text-4xl font-bold text-black mb-6">
+        <div className="absolute inset-0 flex items-center justify-center px-4 py-6 sm:px-6 sm:py-14">
+          <div className="max-w-xl w-full text-center sm:text-left">
+            <h2 className="text-lg sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6 leading-tight">
               Your Love Story Begins Here
             </h2>
-            <p className="text-base sm:text-lg text-black font-medium mb-18 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-black font-medium mb-6 sm:mb-10 leading-relaxed">
               Create stunning wedding invitations that capture the essence of your special day. Elegant designs, heartfelt words, and everything you need to make your first impression unforgettable.
             </p>
-            <div className="flex justify-center ">
+            <div className="flex justify-center sm:justify-start">
               <Link to="/wedding-cards">
-                <button className="bg-yellow-400 cursor-pointer text-black font-semibold px-6 py-2 rounded-md hover:bg-yellow-500 transition">
+                <button className="bg-yellow-400 text-black font-semibold px-4 sm:px-6 py-2 text-sm sm:text-base rounded-md hover:bg-yellow-500 transition">
                   Get your style
                 </button>
               </Link>
-
             </div>
           </div>
         </div>
+
 
       </div>
 
