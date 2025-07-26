@@ -230,7 +230,7 @@ const CheckoutPage = () => {
                     <div className="mt-6">
                         <button
                             onClick={handlePay}
-                            className="w-full bg-amber-500 hover:bg-amber-600 text-white text-lg font-bold py-3 rounded-lg transition-all duration-300"
+                            className="w-full bg-amber-500 cursor-pointer hover:bg-amber-600 text-white text-lg font-bold py-3 rounded-lg transition-all duration-300"
                         >
                             Pay ₹ {total.toFixed(2)}
                         </button>
