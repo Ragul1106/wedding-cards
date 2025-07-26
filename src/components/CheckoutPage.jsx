@@ -63,6 +63,12 @@ const CheckoutPage = () => {
             setError("⚠️ Please select a payment method before proceeding.");
             return;
         }
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user) {
+            alert('Please login to proceed with payment.');
+            navigate('/login');
+            return;
+        }
 
         setError("");
         localStorage.removeItem("checkoutCart");

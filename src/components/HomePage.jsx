@@ -31,7 +31,7 @@ function HomePage() {
             <p className="text-sm sm:text-base md:text-lg text-black font-medium mb-6 sm:mb-10 leading-relaxed">
               Create stunning wedding invitations that capture the essence of your special day. Elegant designs, heartfelt words, and everything you need to make your first impression unforgettable.
             </p>
-            <div className="flex justify-center sm:justify-start">
+            <div className="flex justify-center  sm:justify-center">
               <Link to="/wedding-cards">
                 <button className="bg-yellow-400 text-black font-semibold px-4 sm:px-6 py-2 text-sm sm:text-base rounded-md hover:bg-yellow-500 transition">
                   Get your style
