@@ -23,7 +23,6 @@ const PromoCards = () => {
           </div>
         </div>
 
-        {/* Right 30% - Image + Centered Text */}
         <div className="w-[30%] flex items-center justify-center bg-[#3a2a2a] text-white text-center">
           <div className="relative">
             <img src={frame} alt="20% Off Frame" className="w-30 md:w-36" />
@@ -34,10 +33,8 @@ const PromoCards = () => {
         </div>
       </div>
 
-      {/* Card 2 */}
       <div className="flex w-full max-w-[700px] min-h-[300px] md:min-h-[320px] bg-gradient-to-r from-[#3a2a2a] to-[#c8f1e7] rounded-xl overflow-hidden shadow-lg">
-        
-        {/* Left 30% - Image + Text */}
+
         <div className="w-[30%] flex items-center justify-center bg-[#3a2a2a] text-white text-center">
           <div className="relative">
             <img src={frame} alt="Bonus Frame" className="w-28 md:w-36" />
@@ -47,9 +44,7 @@ const PromoCards = () => {
           </div>
         </div>
 
-        {/* Right 70% - Text */}
         <div className="w-[70%] p-6 relative">
-          {/* Show frame2 only on desktop */}
           <img
             src={frame2}
             alt="Extra Invites Frame"

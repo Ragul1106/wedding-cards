@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Calendar, Clock, MapPin, Pencil } from "lucide-react";
@@ -10,10 +10,19 @@ import width from "../assets/images/width.png";
 import weight from "../assets/images/weight.png";
 import flower from "../assets/images/flower.png";
 import weddingRing from "../assets/images/wedding-details.png";
-
-
 const ProductDetailPage = () => {
   const [showWeddingModal, setShowWeddingModal] = useState(false);
+  const { id } = useParams();
+  const { addToCart } = useCart();
+  const initialProduct = cards.find((p) => p.id === parseInt(id));
+  const [product, setProduct] = useState(initialProduct);
+  const [quantity, setQuantity] = useState(1);
+  const [mainImage, setMainImage] = useState(initialProduct?.src);
+  const totalPrice = quantity * product.price;
+
+  useEffect(() => {
+    setMainImage(product?.src);
+  }, [product]);
 
   const [editing, setEditing] = useState({
     date: false,
@@ -38,14 +47,6 @@ const ProductDetailPage = () => {
   const handleBlur = (key) => {
     setEditing((prev) => ({ ...prev, [key]: false }));
   };
-
-  const { addToCart } = useCart();
-  const { id } = useParams();
-  const product = cards.find((p) => p.id === parseInt(id));
-  const [quantity, setQuantity] = useState(1);
-  const totalPrice = quantity * product.price;
-
-  const [mainImage, setMainImage] = useState(product?.src);
 
   if (!product)
     return <div className="p-10 text-center">Product not found.</div>;
@@ -93,7 +94,6 @@ const ProductDetailPage = () => {
                   per unit inclusive of all taxes
                 </span>
               </p>
-
 
               <div className="mt-4 flex items-center gap-4">
                 <span className="font-bold text-sm sm:text-base lg:text-lg">QTY:</span>
@@ -187,7 +187,7 @@ const ProductDetailPage = () => {
               {product.description}
             </p>
 
-            <h3 className="mt-20 text-base sm:text-lg lg:text-2xl font-bold border-b border-black pb-2">
+            <h3 className="mt-6 text-base sm:text-lg lg:text-2xl font-bold border-b border-black pb-2">
               ADDITIONAL COMMENTS
             </h3>
             <p className="mt-2 text-sm sm:text-base lg:text-xl">
@@ -201,7 +201,6 @@ const ProductDetailPage = () => {
             </h3>
 
             <div className="mt-4 flex flex-col sm:flex-row flex-wrap gap-6 items-start sm:items-center text-sm sm:text-base lg:text-lg">
-
               <div className="flex items-center gap-1">
                 <img src={height} alt="height" className="w-8 h-8 sm:w-5 sm:h-5" />
                 <span className="font-bold">Height:</span> {product.height} cms
@@ -227,6 +226,7 @@ const ProductDetailPage = () => {
                 Wedding details
               </button>
             </div>
+
             <hr className="mt-4" />
           </div>
           {showWeddingModal && (
@@ -361,7 +361,10 @@ const ProductDetailPage = () => {
           )}
         </div>
       </div>
-      <RelatedCards />
+      <RelatedCards onSelectCard={(card) => {
+        setProduct(card);
+        setQuantity(1);
+      }} />
     </>
   );
 };

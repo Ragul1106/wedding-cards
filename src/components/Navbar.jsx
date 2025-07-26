@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiUser, FiHeart, FiShoppingCart, FiSearch } from "react-icons/fi";
 import '../assets/styles/navbar.css';
 import logo from "../assets/images/logo.png";
+import logotext from "../assets/images/logotext.png";
 import { useCart } from "../context/CartContext";
 import CartModal from "./CartModal";
 
@@ -17,17 +18,38 @@ const Navbar = () => {
         <nav className="bg-[#E6E6FA] font-[Poppins] p-4">
             <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 px-4">
                 <div className="flex flex-col sm:flex-row items-center gap-4">
+                    {/* <div className="relative w-28 h-28 sm:w-36 sm:h-36">
+                        <img
+                            src={logo}
+                            alt="Wed Knot Craft"
+                            className="w-full h-full object-contain"
+                        />
+                        <span><img src="" alt="" /></span>
+                        <span className="image-text absolute font-semibold inset-0 flex flex-col items-center justify-center text-[16px] sm:text-[20px] text-black pointer-events-none leading-[1.2]">
+                            <span>Cherished</span>
+                            <span>By</span>
+                        </span>
+                    </div> */}
+
                     <div className="relative w-28 h-28 sm:w-36 sm:h-36">
                         <img
                             src={logo}
                             alt="Wed Knot Craft"
                             className="w-full h-full object-contain"
                         />
-                        <span className="image-text absolute font-semibold inset-0 flex flex-col items-center justify-center text-[16px] sm:text-[20px] text-black pointer-events-none leading-[1.2]">
+
+                        <img
+                            src={logotext}
+                            alt="logotext"
+                            className="absolute top-3/4 left-1/2 transform right-1/4 -translate-x-1/2 h-10 z-20"
+                        />
+
+                        <span className="image-text absolute font-semibold inset-0 flex flex-col items-center justify-center text-[16px] sm:text-[20px] text-black pointer-events-none leading-[1.2] z-10">
                             <span>Cherished</span>
                             <span>By</span>
                         </span>
                     </div>
+
 
                     <div className="text-black image-text text-[16px] sm:text-[20px] leading-tight text-center sm:text-left">
                         <div className="pl-0 text-[25px] font-semibold">Wed</div>

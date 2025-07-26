@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // ✅ Import Link
+import { Link } from 'react-router-dom'; 
 import hinduImage from '../assets/images/Hindu_Invitation_collections.jpg';
 import christianImage from '../assets/images/Christian_Invitation_collections.jpg';
 import muslimImage from '../assets/images/Muslim_Invitation_collections.jpg';
@@ -9,7 +9,7 @@ const collections = [
   {
     title: 'Hindu Invitation Collections',
     image: hinduImage,
-    path: '/hindu-wedding-cards', // ✅ Added path only to first item
+    path: '/hindu-wedding-cards', 
   },
   {
     title: 'Christian Invitation Collections',

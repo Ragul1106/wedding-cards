@@ -1,12 +1,18 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
-
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+   const [cartItems, setCartItems] = useState(() => {
+      const storedCart = localStorage.getItem("cartItems");
+      return storedCart ? JSON.parse(storedCart) : [];
+    });
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
-  const addToCart = (product, quantity) => {
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const addToCart = (product, quantity, image, title) => {
     setCartItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
@@ -16,16 +22,26 @@ export const CartProvider = ({ children }) => {
             : item
         );
       }
-      return [...prev, { ...product, quantity }];
+      return [...prev, { ...product, quantity,image, 
+        title, }];
     });
     setIsCartModalOpen(true);
   };
-
+  const removeFromCart = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, totalItems, isCartModalOpen, setIsCartModalOpen }}
+       value={{
+        cartItems,
+        addToCart,
+        removeFromCart, 
+        totalItems,
+        isCartModalOpen,
+        setIsCartModalOpen,
+      }}
     >
       {children}
     </CartContext.Provider>

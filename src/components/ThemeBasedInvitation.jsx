@@ -1,4 +1,3 @@
-// components/InvitationCardSection.jsx
 import React from "react";
 import beachCard from "../assets/images/Beach_Wedding_Invitation_Set__Wedding_Invitation_Template_2_Set__Editable_Wedding_Invitation__Editable_on_Canva___Digital_Download__Seashell-removebg-preview.png";
 import birdsCard from "../assets/images/Evite_Paperless_Wedding_Invitation_Aqua_Love_Birds-removebg-preview.png";

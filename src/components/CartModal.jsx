@@ -1,25 +1,48 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-
 const CartModal = () => {
+  const {
+    cartItems,
+    isCartModalOpen,
+    setIsCartModalOpen,
+    removeFromCart,
+  } = useCart();
+
   const navigate = useNavigate();
-
-  const { cartItems, isCartModalOpen, setIsCartModalOpen } = useCart();
-
 
   if (!isCartModalOpen) return null;
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce((sum, item) => {
+    const quantity = item.quantity || 0;
+    const price = item.price || 0;
+    return sum + price * quantity;
+  }, 0);
+
   const totalTax = +(subtotal * 0.18).toFixed(2);
-  const totalPrice = +(subtotal + totalTax).toFixed(2);
-  const canCheckout = cartItems.reduce((a, b) => a + b.quantity, 0) >= 100;
+  const total = +(subtotal + totalTax).toFixed(2);
+
+  const totalQuantity = cartItems.reduce((sum, item) => sum + (item.quantity || 0), 0);
+  const canCheckout = totalQuantity >= 100;
+
+  const handleRemove = (id) => {
+    removeFromCart(id);
+  };
+
+  const handleCheckout = () => {
+    if (canCheckout) {
+      localStorage.setItem("checkoutCart", JSON.stringify(cartItems));
+      setIsCartModalOpen(false); 
+      navigate("/checkout", { state: { fromCart: true } });
+    }
+  };
 
   return (
-    <div className="fixed inset-0 bg-opacity-40 z-50 flex items-center justify-center">
-      <div className="bg-white w-[90%] max-w-9xl p-6 rounded-xl overflow-y-auto h-[70vh] relative shadow-xl">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+      <div className="bg-white w-[90%] max-w-7xl p-6 rounded-xl overflow-y-auto max-h-[80vh] relative">
         <button
-          className="absolute cursor-pointer top-4 right-4 text-black text-xl lg:text-2xl"
+          aria-label="Close"
+          className="absolute top-4 right-4 text-black text-xl lg:text-2xl"
           onClick={() => setIsCartModalOpen(false)}
         >
           &times;
@@ -33,39 +56,52 @@ const CartModal = () => {
               <th>Unit Price</th>
               <th>Tax</th>
               <th>Price</th>
+              <th>Action</th>
             </tr>
-
           </thead>
-
           <tbody>
-            {cartItems.map((item) => (
-              <tr key={item.id} className="border-b">
-                <td>
-                  <div className="bg-orange-400 px-4 py-4 rounded-md mt-2 w-[150px] my-4">
-                    <p className="text-sm lg:text-base font-bold">SKU: {item.sku}</p>
-                    <p className="text-xs lg:text-sm">SN ({item.sn || item.id})</p>
-                  </div>
-                </td>
-                <td>{item.quantity}</td>
-                <td>Rs.{item.price.toFixed(2)}</td>
-                <td>18%</td>
-                <td>Rs.{(item.price * item.quantity).toFixed(2)}</td>
-              </tr>
-            ))}
+            {cartItems.map((item) => {
+              const quantity = item.quantity || 0;
+              const price = item.price || 0;
+              const itemTotal = +(price * quantity).toFixed(2);
+
+              return (
+                <tr key={item.id} className="border-b">
+                  <td>
+                    <div className="bg-orange-400 px-4 py-4 rounded-md mt-2 w-[150px]">
+                      <p className="text-sm lg:text-base font-bold">SKU: {item.sku}</p>
+                      <p className="text-xs lg:text-sm">SN ({item.sn || item.id})</p>
+                    </div>
+                  </td>
+                  <td>{quantity}</td>
+                  <td>Rs.{price.toFixed(2)}</td>
+                  <td>18%</td>
+                  <td>Rs.{itemTotal.toFixed(2)}</td>
+                  <td>
+                    <button
+                      className="text-red-600 font-bold text-sm cursor-pointer hover:underline"
+                      onClick={() => handleRemove(item.id)}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
 
           <tfoot className="text-sm lg:text-base">
             <tr>
-              <td colSpan="4" className="text-right font-semibold py-4">Sub Total:</td>
+              <td colSpan="5" className="text-right font-semibold py-4">Sub Total:</td>
               <td className="font-semibold">Rs.{subtotal.toFixed(2)}</td>
             </tr>
             <tr>
-              <td colSpan="4" className="text-right font-semibold">Total Tax (18%):</td>
-              <td className="font-semibold">Rs.{totalTax}</td>
+              <td colSpan="5" className="text-right font-semibold">Total Tax (18%):</td>
+              <td className="font-semibold">Rs.{totalTax.toFixed(2)}</td>
             </tr>
             <tr>
-              <td colSpan="4" className="text-right font-bold py-4">Total:</td>
-              <td className="font-bold">Rs.{totalPrice}</td>
+              <td colSpan="5" className="text-right font-bold py-4">Total:</td>
+              <td className="font-bold">Rs.{total.toFixed(2)}</td>
             </tr>
           </tfoot>
         </table>
@@ -83,31 +119,16 @@ const CartModal = () => {
           >
             Continue Shopping
           </button>
+
           <button
             disabled={!canCheckout}
-            onClick={() => {
-              if (canCheckout) {
-                setIsCartModalOpen(false);
-                navigate("/checkout", {
-                  state: {
-                    cartItems,
-                    subtotal,
-                    totalTax,
-                    totalPrice
-                  }
-                });
-
-              }
-            }}
-            className={`px-6 py-2 rounded-lg text-white font-semibold text-sm lg:text-base transition-all duration-300
-    ${canCheckout
-                ? "bg-gray-800 hover:bg-gray-900 cursor-pointer"
-                : "bg-gray-400 cursor-not-allowed"
-              }`}
+            onClick={handleCheckout}
+            className={`${
+              canCheckout ? "bg-gray-800 hover:bg-gray-900" : "bg-gray-400"
+            } px-6 py-2 rounded-lg cursor-pointer  text-white font-semibold text-sm lg:text-base`}
           >
             Checkout
           </button>
-
         </div>
       </div>
     </div>

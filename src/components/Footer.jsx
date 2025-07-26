@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FiPhone, FiMail } from "react-icons/fi";
 import '../assets/styles/navbar.css';
 import logo from "../assets/images/logo.png";
+import logotext from "../assets/images/logotext.png";
 import insta from "../assets/images/insta.png";
 import facebook from "../assets/images/facebook.png";
 import youtube from "../assets/images/youtube.png";
@@ -17,6 +18,11 @@ const Footer = () => {
 
                     <div className="w-46 h-46 mb-2 relative">
                         <img src={logo} alt="Wed Knot Craft" className="w-full h-full object-contain" />
+                        <img
+                            src={logotext}
+                            alt="logotext"
+                            className="absolute top-3/4 left-1/2 transform right-1/4 -translate-x-1/2 h-12 z-20"
+                        />
 
                         <div className="absolute image-text inset-0 mr-6 font-semibold flex flex-col items-center justify-center text-[16px] sm:text-[20px] text-black  leading-tight pointer-events-none">
                             <span className="pl-0">Wed</span>

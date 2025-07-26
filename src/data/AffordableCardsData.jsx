@@ -12,19 +12,19 @@ export const affordableCards = [
     price: 10.25,
     sku: "AFF001",
     src: card1,
-    gallery: [card1,card1,card3,card5],
+    gallery: [card3, card1, card2, card5],
     description: "This satin red card is elegant and personalized with bride and groom names.",
     comments: "Discounts apply on bulk orders.",
     height: "20",
     width: "14",
     weight: "90",
     variants: [
-                {
-                  id: 102,
-                  title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
-                  src: card2,
-                },
-              ],
+      {
+        id: 102,
+        title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
+        src: card2,
+      },
+    ],
   },
   {
     id: 102,
@@ -32,19 +32,19 @@ export const affordableCards = [
     price: 5.0,
     sku: "AFF002",
     src: card2,
-    gallery: [card2,card1,card3,card5],
+    gallery: [card4, card1, card3, card5],
     description: "A simple yet bright invitation in red and yellow tones.",
     comments: "Budget-friendly wedding card for every event.",
     height: "18",
     width: "13",
     weight: "85",
-     variants: [
-                {
-                  id: 103,
-                  title: "Red Vertical Personal Invite with Bride And Groom Names",
-                  src: card2,
-                },
-              ],
+    variants: [
+      {
+        id: 103,
+        title: "Red Vertical Personal Invite with Bride And Groom Names",
+        src: card2,
+      },
+    ],
   },
   {
     id: 103,
@@ -52,19 +52,19 @@ export const affordableCards = [
     price: 7.0,
     sku: "AFF003",
     src: card3,
-    gallery: [card3,card1,card3,card5],
+    gallery: [card6, card1, card2, card5],
     description: "Vertical card with classic red design, customizable details.",
     comments: "Perfect for traditional Hindu weddings.",
     height: "22",
     width: "14",
     weight: "95",
     variants: [
-                {
-                  id: 102,
-                  title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
-                  src: card2,
-                },
-              ],
+      {
+        id: 102,
+        title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
+        src: card2,
+      },
+    ],
   },
   {
     id: 104,
@@ -72,19 +72,19 @@ export const affordableCards = [
     price: 8.5,
     sku: "AFF004",
     src: card4,
-    gallery: [card4,card1,card3,card5],
+    gallery: [card2, card1, card3, card5],
     description: "Elegant cream wedding card with intricate designer motifs.",
     comments: "Delivers a premium look at an affordable price.",
     height: "21",
     width: "15",
     weight: "100",
     variants: [
-                {
-                  id: 102,
-                  title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
-                  src: card2,
-                },
-              ],
+      {
+        id: 102,
+        title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
+        src: card2,
+      },
+    ],
   },
   {
     id: 105,
@@ -92,19 +92,19 @@ export const affordableCards = [
     price: 9.99,
     sku: "AFF005",
     src: card5,
-    gallery: [card5,card1,card3,card5],
+    gallery: [card5, card1, card3, card4],
     description: "Royal blue foil print card perfect for regal ceremonies.",
     comments: "Shines best in natural light.",
     height: "23",
     width: "16",
     weight: "105",
-   variants: [
-                {
-                  id: 102,
-                  title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
-                  src: card2,
-                },
-              ],
+    variants: [
+      {
+        id: 102,
+        title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
+        src: card2,
+      },
+    ],
   },
   {
     id: 106,
@@ -112,18 +112,18 @@ export const affordableCards = [
     price: 6.75,
     sku: "AFF006",
     src: card6,
-    gallery: [card6,card1,card3,card5],
+    gallery: [card6, card1, card3, card5],
     description: "Minimalist gold bordered card with traditional feel.",
     comments: "Great for simple yet elegant functions.",
     height: "19",
     width: "13",
     weight: "88",
     variants: [
-                {
-                  id: 102,
-                  title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
-                  src: card2,
-                },
-              ],
+      {
+        id: 102,
+        title: "Simple Red and Yellow Card Invite with Bride And Groom Names",
+        src: card2,
+      },
+    ],
   },
 ];

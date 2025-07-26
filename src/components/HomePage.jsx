@@ -31,7 +31,6 @@ function HomePage() {
 
   <InvitationCardSection />
   <ThemeBasedInvitation />
-  {/* <PromoCards /> */}
   <div className="px-2 sm:px-4 md:px-6 py-8 bg-[#EAE6FA]">
       <div className="flex flex-col md:flex-row gap-4 justify-between">
         <div className="flex-1 min-h-[200px] bg-gray-100 rounded-xl shadow-md overflow-hidden">
