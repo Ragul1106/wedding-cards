@@ -1,4 +1,3 @@
-// components/InvitationCardSection.jsx
 import React from "react";
 import hinduCard from "../assets/images/Editable_Indian_Wedding_Invitations___Hindu_Wedding_Invite___Flower_Frame_Wedding_Card___Printable___Instant_Download___Corjl_IWIM_-_Etsy_UK-removebg-preview.png";
 import luxuryCard from "../assets/images/Invitation_Luxury_PSD__High_Quality_Free_PSD_Templates_for_Download___Freepik-removebg-preview.png";
@@ -21,7 +20,7 @@ const InvitationCardSection = () => {
   ];
 
   return (
-    <section className="bg-[#EAEAFF] py-10 px-4">
+    <section className="bg-[#E6E6Fa] py-10 px-4">
       <div className="text-center mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           Unique & Exclusive Invitation Cards

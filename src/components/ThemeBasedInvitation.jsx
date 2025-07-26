@@ -20,7 +20,7 @@ const ThemeBasedInvitation = () => {
   ];
 
   return (
-    <section className="bg-[#EAEAFF] py-10 px-4">
+    <section className="bg-[#E6E6Fa] py-10 px-4">
       <div className="text-center mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           Theme Based Invitation
